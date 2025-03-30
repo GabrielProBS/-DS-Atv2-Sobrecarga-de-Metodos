@@ -32,8 +32,8 @@ public static void main(String[] args) {
                     System.out.print("Digite a temperatura em Celsius: ");
                     celsius = scanner.nextDouble();
                     System.out.print("Qual valor você deseja para que o valor arredondado tenha?");
-                    int casasDecimais = scanner.nextInt();
-                    double resultado = Conversor.conversor(celsius) + casasDecimais;
+                    int valorparaArredondar = scanner.nextInt();
+                    double resultado = Conversor.conversor(celsius) + valorparaArredondar; //Processo de arredondamento
                     System.out.println("Temperatura em Fahrenheit (arredondado): " + resultado);
                     break;
                 case 4:
