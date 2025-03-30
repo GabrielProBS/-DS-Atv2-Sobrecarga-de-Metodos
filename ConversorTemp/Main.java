@@ -1,10 +1,12 @@
 import java.util.Scanner;
-import java.util.locale;
-
+import java.util.Locale;
 public static void main(String[] args) {
+    Conversor Conversor = new Conversor();
     Scanner scanner = new Scanner(System.in);
-    Locale.setDefault(Locale.US); //Para que o "." reprensente o separador decimal
+    scanner.useLocale(Locale.US); //Para que o "." reprensente o separador decimal
     int op;
+    double celsius;
+
     do {
         System.out.println("Escolha uma opção:");
         System.out.println("1. Celsius para Fahrenheit");
@@ -18,17 +20,22 @@ public static void main(String[] args) {
             switch (op) {
                 case 1:
                     System.out.print("Digite a temperatura em Celsius: ");
-                    double celsius = scanner.nextDouble();
-                    double fahrenheit = (celsius * 9 / 5) + 32;
-                    System.out.printf("Temperatura em Fahrenheit: %.2f%n", fahrenheit);
+                    celsius = scanner.nextDouble();
+                    System.out.println("Temperatura em Fahrenheit: " + Conversor.conversor(celsius));
                     break;
                 case 2:
                     System.out.print("Digite a temperatura em Fahrenheit: ");
-                    fahrenheit = scanner.nextDouble();
-                        
-                    System.out.printf("Temperatura em Celsius: %.2f%n", celsius);
+                    float fahrenheit = scanner.nextFloat();
+                    System.out.println("Temperatura em Celsius: " + Conversor.conversor(fahrenheit));
                     break;
                 case 3:
+                    System.out.print("Digite a temperatura em Celsius: ");
+                    celsius = scanner.nextDouble();
+                    System.out.print("Qual valor você deseja para que o valor arredondado tenha?");
+                    int casasDecimais = scanner.nextInt();
+                    double resultado = Conversor.conversor(celsius) + casasDecimais;
+                    System.out.println("Temperatura em Fahrenheit (arredondado): " + resultado);
+                    break;
                 case 4:
                     System.out.println("Saindo...");
                     break;
